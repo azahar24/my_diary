@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:my_diary/route/route.dart';
 import 'package:my_diary/ui/views/splash_screen.dart';
 
 void main() async {
@@ -20,8 +21,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-
       home: SplashScreen(),
+      initialRoute: splash,
+      getPages: getPages,
     );
   }
 }
