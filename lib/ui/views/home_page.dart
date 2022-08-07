@@ -1,9 +1,28 @@
 import 'package:flutter/material.dart';
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+import 'package:my_diary/ui/views/add_new_note.dart';
+
+class HomePage extends StatefulWidget {
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  addNewNote(){
+    return showModalBottomSheet(
+        context: context,
+        builder: (context)=>AddNewNote()
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: ()=>addNewNote(),
+        child: Icon(Icons.add,color: Colors.white,),
+        //backgroundColor: Colors.white,
+      ),
+    );
   }
 }
