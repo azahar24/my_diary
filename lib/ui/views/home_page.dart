@@ -11,6 +11,7 @@ class _HomePageState extends State<HomePage> {
   addNewNote(){
     return showModalBottomSheet(
         context: context,
+        backgroundColor: Colors.transparent,
         builder: (context)=>AddNewNote()
     );
   }
