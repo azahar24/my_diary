@@ -13,26 +13,58 @@ class _AddNewNoteState extends State<AddNewNote> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.only(top: 15,left: 15,right: 15),
+      padding: EdgeInsets.only(top: 25, left: 15, right: 15),
+      height: 500,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(25),
+          topRight: Radius.circular(25),
+        ),
         color: Colors.white,
-
       ),
       child: Column(
         children: [
           TextField(
             controller: _titleController,
             decoration: InputDecoration(
-              hintText: 'title'
+              hintText: 'title',
+              hintStyle: TextStyle(
+                fontSize: 18,
+              ),
+              border: OutlineInputBorder(
+                  borderSide: BorderSide(width: 1, color: Color(0xFFC5C5C5))),
             ),
           ),
-          TextField(
-            controller: _decController,
-            decoration: InputDecoration(
-                hintText: 'title'
-            ),
+          SizedBox(
+            height: 10,
           ),
+          Container(
+            height: 300,
+            child: TextField(
+              maxLines: null,
+              expands: true,
+              controller: _decController,
+              decoration: InputDecoration(
+                hintText: 'description',
+                hintStyle: TextStyle(
+                  fontSize: 18,
+                ),
+              ),
+            ),
+            decoration: BoxDecoration(
+                border: Border.all(width: 0.5, color: Colors.amber)),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Container(
+              height: 40,
+              child: ElevatedButton(
+                  onPressed: () {},
+                  child: Text(
+                    'CONTINUE',
+                    style: TextStyle(fontSize: 16),
+                  )))
         ],
       ),
     );

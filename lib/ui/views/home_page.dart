@@ -12,6 +12,7 @@ class _HomePageState extends State<HomePage> {
     return showModalBottomSheet(
         context: context,
         backgroundColor: Colors.transparent,
+        isScrollControlled: true,
         builder: (context)=>AddNewNote()
     );
   }
