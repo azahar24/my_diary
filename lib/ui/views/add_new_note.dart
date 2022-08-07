@@ -10,10 +10,12 @@ class AddNewNote extends StatefulWidget {
 class _AddNewNoteState extends State<AddNewNote> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        TextField(),
-      ],
+    return Container(
+      child: Column(
+        children: [
+          TextField(),
+        ],
+      ),
     );
   }
 }
