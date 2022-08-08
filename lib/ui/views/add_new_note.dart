@@ -1,8 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
+
+import '../../helper/auth_helper.dart';
 
 class AddNewNote extends StatefulWidget {
-  const AddNewNote({Key? key}) : super(key: key);
-
   @override
   State<AddNewNote> createState() => _AddNewNoteState();
 }
@@ -10,6 +14,24 @@ class AddNewNote extends StatefulWidget {
 class _AddNewNoteState extends State<AddNewNote> {
   TextEditingController _titleController = TextEditingController();
   TextEditingController _decController = TextEditingController();
+
+  User? currntUser = FirebaseAuth.instance.currentUser;
+
+  writeData() async {
+    FirebaseFirestore.instance
+        .collection('notes')
+        .doc(currntUser!.email)
+        .collection('item')
+        .add({
+      'title': _titleController.text,
+      'dec': _decController.text,
+    }).whenComplete(() {
+      Fluttertoast.showToast(msg: "add sec");
+    }).catchError((error) => printError());
+    print('Secces add');
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -60,7 +82,7 @@ class _AddNewNoteState extends State<AddNewNote> {
           Container(
               height: 40,
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () =>writeData(),
                   child: Text(
                     'CONTINUE',
                     style: TextStyle(fontSize: 16),
