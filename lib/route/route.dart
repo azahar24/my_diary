@@ -24,10 +24,7 @@ List<GetPage> getPages = [
       name: loginsignup,
       page: () => LoginSignup()
   ),
-  GetPage(
-      name: itemdetals,
-      page: () => ItemDetails()
-  ),
+
 
 
 

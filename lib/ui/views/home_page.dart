@@ -5,6 +5,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:my_diary/route/route.dart';
 import 'package:my_diary/ui/views/add_new_note.dart';
+import 'package:my_diary/ui/views/item_details.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -68,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                 return Card(
                   child: ListTile(
                     onTap: (){
-                      Get.toNamed(itemdetals);
+                      Navigator.push(context, MaterialPageRoute(builder: (_)=>ItemDetails(document.id, data['title'], data['dec'])));
                     },
                     title: Text(data['title']),
                     subtitle: Text(data['dec']),
