@@ -11,7 +11,7 @@ class LoginSignup extends StatelessWidget {
           Center(
             child: ElevatedButton(
               onPressed: () => AuthHelper().signInWithGoogle(context),
-              child: Text('Sign Up With Google'),
+              child: Text('Login & SignUp With Google'),
             ),
           ),
         ],
